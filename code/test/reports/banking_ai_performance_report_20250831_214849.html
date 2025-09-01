@@ -1,0 +1,431 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Banking AI Assistant Test Execution Report</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+                .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+                .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; }
+                .content { padding: 30px; }
+                .summary { margin: 30px 0; background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+                .summary-table { border-collapse: collapse; width: 100%; max-width: 800px; margin: 0 auto; }
+                .summary-table th, .summary-table td { border: 1px solid #dee2e6; padding: 20px; text-align: left; }
+                .summary-table th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; }
+                .status-passed { color: #28a745; font-weight: bold; }
+                .status-failed { color: #dc3545; font-weight: bold; }
+                .status-clarification { color: #ffc107; font-weight: bold; }
+                .detailed { background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+                .detailed-table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+                .detailed-table th, .detailed-table td { border: 1px solid #dee2e6; padding: 12px; text-align: left; font-size: 13px; }
+                .detailed-table th { background: linear-gradient(135deg, #495057 0%, #343a40 100%); color: white; font-weight: 600; }
+                .detailed-table td { max-width: 250px; overflow: hidden; text-overflow: ellipsis; vertical-align: top; }
+                .metric-value { font-size: 32px; font-weight: 800; }
+                h1 { margin: 0; font-size: 36px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+                h2 { color: #495057; border-bottom: 3px solid #667eea; padding-bottom: 15px; margin-bottom: 25px; }
+                .highlight { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #2196f3; }
+                .performance-indicator { text-align: center; font-size: 18px; font-weight: 600; margin: 20px 0; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>🏦 Banking AI Assistant Test Report</h1>
+                    <p style="margin: 15px 0 0 0; font-size: 20px;"><strong>Generated:</strong> 2025-08-31 21:48:49</p>
+                    <p style="margin: 5px 0 0 0; font-size: 18px;"><strong>Test Suite:</strong> Natural Language to SQL Conversion</p>
+                </div>
+                
+                <div class="content">
+                    <div class="summary">
+                        <h2>📊 Executive Summary</h2>
+                        <table class="summary-table">
+                            <tr><th>Metric</th><th>Value</th></tr>
+                            <tr><td>Total Test Cases</td><td class="metric-value">35</td></tr>
+                            <tr><td>Successful Executions</td><td class="status-passed metric-value">32</td></tr>
+                            <tr><td>Failed Executions</td><td class="status-failed metric-value">3</td></tr>
+                            <tr><td>Clarifications Needed</td><td class="status-clarification metric-value">0</td></tr>
+                            <tr><td>Success Rate</td><td class="metric-value" style="color: #28a745;">91.4%</td></tr>
+                            <tr><td>Average Response Time</td><td class="metric-value">6.561s</td></tr>
+                        </table>
+                        
+                        <div class="highlight">
+                            <div class="performance-indicator">
+                                🌟 OUTSTANDING PERFORMANCE!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detailed">
+                        <h2>📋 Detailed Test Results</h2>
+                        <table border="1" class="dataframe detailed-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Test_ID</th>
+      <th>Natural_Language_Query</th>
+      <th>Generated_SQL</th>
+      <th>Execution_Status</th>
+      <th>Execution_Time_Seconds</th>
+      <th>Result_Count</th>
+      <th>Error_Message</th>
+      <th>Clarification_Requested</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>List all branches and their managers' names. Include branches without a manager.</td>
+      <td>SELECT T1.name, T2.name AS manager_name FROM branches AS T1 LEFT JOIN employees AS T2 ON T1.manager_id = T2.id</td>
+      <td>PASSED</td>
+      <td>0.697924</td>
+      <td>50</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Find the names of customers who have both 'checking' and 'savings' accounts.</td>
+      <td>SELECT DISTINCT T1.first_name, T1.last_name FROM customers AS T1 INNER JOIN accounts AS T2 ON T1.id = T2.customer_id WHERE T2.type = 'checking' INTERS...</td>
+      <td>PASSED</td>
+      <td>0.329582</td>
+      <td>180</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>List all employees who have handled a transaction for a customer born before 1960.</td>
+      <td>SELECT DISTINCT e.* \nFROM employees e \nJOIN transactions t ON e.id = t.employee_id \nJOIN accounts a ON t.account_id = a.id \nJOIN customers c ON a.cust...</td>
+      <td>PASSED</td>
+      <td>0.268745</td>
+      <td>492</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Find the total number of accounts for each customer gender.</td>
+      <td>SELECT COUNT(T1.id), T1.gender FROM customers AS T1 INNER JOIN accounts AS T2 ON T1.id = T2.customer_id GROUP BY T1.gender</td>
+      <td>PASSED</td>
+      <td>0.318711</td>
+      <td>4</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>For each employee position, what is the average salary, but only for positions with an average salary above 80000?</td>
+      <td>SELECT position, AVG(salary) FROM employees GROUP BY position HAVING AVG(salary) > 80000</td>
+      <td>PASSED</td>
+      <td>0.455828</td>
+      <td>12</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Show the average transaction amount for transactions completed in the first quarter of 2025.</td>
+      <td>SELECT AVG(amount) FROM transactions WHERE type = 'completed' AND transaction_date BETWEEN '2025-01-01 00:00:00' AND '2025-03-31 23:59:59'</td>
+      <td>PASSED</td>
+      <td>0.293953</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Which employees were hired in the same month as 'Raymond Jefferson'?</td>
+      <td>SELECT e.* \nFROM employees e\nJOIN customers c ON e.branch_id = c.branch_id\nWHERE e.hire_date LIKE c.date_of_birth</td>
+      <td>PASSED</td>
+      <td>0.786819</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>For each customer, list their total deposit amount and total withdrawal amount.</td>
+      <td>SELECT SUM(CASE WHEN t.type = 'deposit' THEN t.amount ELSE 0 END) AS total_deposit, \n       SUM(CASE WHEN t.type = 'withdrawal' THEN t.amount ELSE 0 E...</td>
+      <td>PASSED</td>
+      <td>5.008667</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Identify employees who have handled transactions for customers from a different branch than their own.</td>
+      <td>SELECT DISTINCT e.id, e.name \nFROM employees e\nJOIN transactions t ON e.id = t.employee_id\nJOIN accounts a ON t.account_id = a.id\nJOIN customers c ON ...</td>
+      <td>PASSED</td>
+      <td>8.571036</td>
+      <td>500</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Find the names of branches where the average salary of employees is higher than the overall average employee salary.</td>
+      <td>SELECT name FROM branches WHERE id IN ( SELECT branch_id FROM employees GROUP BY branch_id HAVING AVG(salary) > ( SELECT AVG(salary) FROM employees ) ...</td>
+      <td>PASSED</td>
+      <td>8.307556</td>
+      <td>24</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>List customers who have a 'credit' account and have made at least one 'fee' transaction.</td>
+      <td>SELECT c.* \nFROM customers c \nJOIN accounts a ON c.id = a.customer_id \nJOIN transactions t ON a.id = t.account_id \nWHERE a.type = 'credit' AND t.type ...</td>
+      <td>PASSED</td>
+      <td>7.449008</td>
+      <td>417</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Show customers who have the same first name but different last names.</td>
+      <td>SELECT first_name FROM customers GROUP BY first_name HAVING COUNT(DISTINCT last_name) > 1</td>
+      <td>PASSED</td>
+      <td>8.461014</td>
+      <td>308</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>List the branches where the total salary of employees is less than 500000.</td>
+      <td>SELECT b.id FROM branches b JOIN employees e ON b.id = e.branch_id GROUP BY b.id HAVING SUM(e.salary) < 500000</td>
+      <td>PASSED</td>
+      <td>8.339756</td>
+      <td>5</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Show the email and phone number of customers who have a 'loan' account with a balance greater than 20000.</td>
+      <td>SELECT T1.email, T1.phone FROM customers AS T1 INNER JOIN accounts AS T2 ON T1.id = T2.customer_id WHERE T2.type = 'loan' AND T2.balance > 20000</td>
+      <td>PASSED</td>
+      <td>7.319342</td>
+      <td>3</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>For each employee position, list the number of employees and their average salary.</td>
+      <td>SELECT COUNT(id) as num_employees, AVG(salary) AS average_salary, position FROM employees GROUP BY position</td>
+      <td>PASSED</td>
+      <td>8.795292</td>
+      <td>12</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>List all transactions that occurred on a weekend (Saturday or Sunday).</td>
+      <td>SELECT * FROM transactions WHERE strftime('%w', transaction_date) IN (6, 0)</td>
+      <td>PASSED</td>
+      <td>7.355686</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Find the customers who have made transactions on consecutive days.</td>
+      <td>SELECT DISTINCT c.id, c.first_name, c.last_name\nFROM customers c\nJOIN accounts a ON c.id = a.customer_id\nJOIN transactions t1 ON a.id = t1.account_id\n...</td>
+      <td>FAILED</td>
+      <td>9.169511</td>
+      <td>0</td>
+      <td>Execution failed on sql 'SELECT DISTINCT c.id, c.first_name, c.last_name\nFROM customers c\nJOIN accounts a ON c.id = a.customer_id\nJOIN transactions t1 ON a.id = t1.account_id\nJOIN transactions t2 ON a.id = t2.account_id\nWHERE t1.transaction_date = DATE('now', '-1 day')\nAND t2.transaction_date = DATE('now', '-2 day')\nAND t1.id != t2.id\n```': unrecognized token: "```"</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>List all accounts that have more deposits than withdrawals in terms of count.</td>
+      <td>SELECT id FROM accounts WHERE id IN ( SELECT account_id FROM transactions GROUP BY account_id HAVING SUM(CASE WHEN type = 'deposit' THEN 1 ELSE 0 END)...</td>
+      <td>PASSED</td>
+      <td>7.415032</td>
+      <td>875</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>For each customer, list their first name, last name, and the total number of transactions they made in the year 2024.</td>
+      <td>SELECT c.first_name, c.last_name, COUNT(*) \nFROM customers c \nJOIN accounts a ON c.id = a.customer_id \nJOIN transactions t ON a.id = t.account_id \nWHE...</td>
+      <td>PASSED</td>
+      <td>8.445735</td>
+      <td>1093</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Find the average balance of accounts that have had at least one transaction.</td>
+      <td>SELECT AVG(T3.balance) FROM transactions AS T1 INNER JOIN accounts AS T2 ON T1.account_id = T2.id INNER JOIN accounts AS T3 ON T3.id = T2.id WHERE T1....</td>
+      <td>PASSED</td>
+      <td>8.335162</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Get the names of customers who have the same last name as their branch manager.</td>
+      <td>SELECT T1.first_name, T1.last_name \nFROM customers AS T1 \nJOIN employees AS T2 ON T1.branch_id = T2.branch_id \nJOIN employees AS T3 ON T3.id = T2.mana...</td>
+      <td>FAILED</td>
+      <td>8.912626</td>
+      <td>0</td>
+      <td>Execution failed on sql 'SELECT T1.first_name, T1.last_name \nFROM customers AS T1 \nJOIN employees AS T2 ON T1.branch_id = T2.branch_id \nJOIN employees AS T3 ON T3.id = T2.manager_id \nWHERE T1.last_name = T3.name': no such column: T2.manager_id</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>List all accounts that have never had a 'withdrawal' transaction.</td>
+      <td>SELECT id FROM accounts WHERE id NOT IN ( SELECT account_id FROM transactions WHERE type = 'withdrawal' )</td>
+      <td>PASSED</td>
+      <td>7.622981</td>
+      <td>1627</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Show the average salary of employees for each branch, only considering employees hired after 2020.</td>
+      <td>SELECT SUM(CASE WHEN T1.branch_id = T2.id THEN T1.salary ELSE 0 END) / COUNT(DISTINCT T2.id) , T2.id \nFROM employees AS T1\nJOIN branches AS T2 ON T1.b...</td>
+      <td>PASSED</td>
+      <td>8.555919</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>List customers who have a total transaction amount (sum of all their transactions) greater than 50000.</td>
+      <td>SELECT c.id, c.first_name, c.last_name, SUM(t.amount) as total_transactions FROM customers c INNER JOIN accounts a ON c.id = a.customer_id INNER JOIN ...</td>
+      <td>PASSED</td>
+      <td>8.428636</td>
+      <td>2</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Find the branch with the most diverse set of employee positions.</td>
+      <td>SELECT b.id, COUNT(DISTINCT e.position) FROM branches b \nJOIN employees e ON b.id = e.branch_id \nGROUP BY b.id ORDER BY COUNT(DISTINCT e.position) DES...</td>
+      <td>PASSED</td>
+      <td>8.469288</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Find the total number of customers for each gender, excluding 'prefer_not_to_say'.</td>
+      <td>SELECT COUNT(id), gender FROM customers WHERE gender != 'prefer_not_to_say' GROUP BY gender</td>
+      <td>PASSED</td>
+      <td>7.338414</td>
+      <td>3</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>List all customers who have exactly two accounts.</td>
+      <td>SELECT c.id, c.email, COUNT(a.id) FROM customers c LEFT JOIN accounts a ON c.id = a.customer_id GROUP BY c.id HAVING COUNT(a.id) = 2</td>
+      <td>PASSED</td>
+      <td>8.357557</td>
+      <td>506</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Get the names of branches that have no managers assigned yet.</td>
+      <td>SELECT name FROM branches WHERE manager_id IS NULL</td>
+      <td>PASSED</td>
+      <td>8.357896</td>
+      <td>9</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Show the names of branches that have an employee named 'Michael'.</td>
+      <td>SELECT DISTINCT T2.name FROM employees AS T1 INNER JOIN branches AS T2 ON T1.branch_id = T2.id WHERE T1.name = 'Michael'</td>
+      <td>PASSED</td>
+      <td>7.537011</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>List customers who share the same address with another customer.</td>
+      <td>SELECT * FROM customers WHERE address IN ( SELECT address FROM customers GROUP BY address HAVING COUNT(*) > 1 )</td>
+      <td>PASSED</td>
+      <td>7.363560</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Find the branch that has the highest number of 'completed' transactions.</td>
+      <td>SELECT T.branch_id FROM (\n    SELECT account_id, COUNT(*) AS cnt, branch_id \n    FROM transactions \n    WHERE status = 'completed' \n    GROUP BY branc...</td>
+      <td>FAILED</td>
+      <td>8.720400</td>
+      <td>0</td>
+      <td>Execution failed on sql 'SELECT T.branch_id FROM (\n    SELECT account_id, COUNT(*) AS cnt, branch_id \n    FROM transactions \n    WHERE status = 'completed' \n    GROUP BY branch_id\n) AS T ORDER BY T.cnt DESC LIMIT 1': no such column: branch_id</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Show the names of employees who have never handled a 'failed' transaction.</td>
+      <td>SELECT name FROM employees WHERE id NOT IN ( SELECT employee_id FROM transactions WHERE status = 'failed' )</td>
+      <td>PASSED</td>
+      <td>8.376138</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>List customers who have a credit account and a loan account, and their combined balance for these two types is greater than 30000.</td>
+      <td>SELECT c.id, c.first_name, c.last_name, SUM(CASE WHEN a.type = 'credit' THEN a.balance ELSE 0 END) AS credit_balance, SUM(CASE WHEN a.type = 'loan' TH...</td>
+      <td>PASSED</td>
+      <td>7.483724</td>
+      <td>5</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Find the average balance of accounts for customers whose age is between 30 and 40.</td>
+      <td>SELECT AVG(T2.balance) \nFROM customers AS T1 \nINNER JOIN accounts AS T2 \nON T1.id = T2.customer_id \nWHERE T1.date_of_birth BETWEEN DATE('now', '-30 ye...</td>
+      <td>PASSED</td>
+      <td>9.431928</td>
+      <td>1</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Show the names of branches that have at least one employee from every position type present in the 'employees' table.</td>
+      <td>SELECT DISTINCT T1.name FROM branches AS T1 INNER JOIN employees AS T2 ON T1.id = T2.branch_id GROUP BY T2.position HAVING COUNT(DISTINCT T2.position)...</td>
+      <td>PASSED</td>
+      <td>8.571259</td>
+      <td>0</td>
+      <td>None</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>
+        

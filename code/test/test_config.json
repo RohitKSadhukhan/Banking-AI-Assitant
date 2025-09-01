@@ -1,0 +1,17 @@
+{
+    "test_settings": {
+        "timeout_seconds": 30,
+        "retry_attempts": 2,
+        "parallel_execution": false,
+        "save_intermediate_results": true
+    },
+    "report_settings": {
+        "include_sql_in_html": true,
+        "generate_charts": true,
+        "export_formats": ["html", "excel", "json"]
+    },
+    "database_settings": {
+        "connection_timeout": 10,
+        "query_timeout": 15
+    }
+}

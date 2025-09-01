@@ -1,0 +1,15 @@
+python-dotenv>=1.0.1
+pydantic>=2.8
+streamlit>=1.36
+langchain>=0.2.10
+langchain-openai>=0.1.22
+langgraph>=0.2.20
+duckdb-engine>=0.13
+pandas>=2.2
+sqlalchemy>=2.0
+sqlite-utils>=3.36
+tiktoken>=0.7
+tenacity>=8.3
+pytest>=8.2
+openpyxl
+xlsxwriter

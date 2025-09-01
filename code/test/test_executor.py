@@ -25,7 +25,7 @@ class TestResult:
 class TestExecutor:
     def __init__(self):
         # Use your API key directly for reliability
-        self.groq_api_key = "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"
+        self.groq_api_key = "test"
         
         try:
             self.llm = ChatGroq(model="llama-3.1-8b-instant", api_key=self.groq_api_key)

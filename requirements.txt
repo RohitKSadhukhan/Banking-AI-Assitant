@@ -13,3 +13,8 @@ tenacity>=8.3
 pytest>=8.2
 openpyxl
 xlsxwriter
+langchain-groq
+streamlit
+langchain-core
+langchain-community
+python-dotenv
